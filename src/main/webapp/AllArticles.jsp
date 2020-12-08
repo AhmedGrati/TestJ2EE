@@ -26,6 +26,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,10 +39,10 @@
                         <td>${article.description}</td>
                         <td>
                             <a href="deleteArticle?id=${article.id}">
-                                <button class="btn"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             </a>
                             <a href="updateArticle?id=${article.id}">
-                                <button class="btn"><i class="fa fa-edit"></i></button>
+                                <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
                             </a>
                         </td>
                     </tr>

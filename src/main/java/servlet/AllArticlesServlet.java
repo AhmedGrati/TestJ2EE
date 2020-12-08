@@ -18,7 +18,7 @@ public class AllArticlesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArticleService articleService = new ArticleService();
         List<Article> articleList = articleService.findAll();
-        System.out.println("HEYY");
+
         req.setAttribute("allArticles",articleList);
         req.getRequestDispatcher("AllArticles.jsp").forward(req,resp);
     }

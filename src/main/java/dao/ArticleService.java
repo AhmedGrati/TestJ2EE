@@ -63,11 +63,59 @@ public class ArticleService implements ArticleDAO {
 
     @Override
     public void updateArticle(Article article) {
+        System.out.println("id : "+article.getId());
+        Connection connection = SingletonConnection.getConnection();
+        try {
 
+            String query = "UPDATE article\n" +
+                    "SET article_code = ?, article_name= ? , article_price = ? , article_description = ? \n" +
+                    "WHERE article_id = ?;";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1,article.getCode());
+            ps.setString(2,article.getName());
+            ps.setDouble(3,article.getPrice());
+            ps.setString(4,article.getDescription());
+            ps.setInt(5,article.getId());
+            int resultSet = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteArticleById(int id) {
+        Connection connection = SingletonConnection.getConnection();
+        try {
 
+            String query = "DELETE FROM article WHERE ARTICLE_ID = ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1,id);
+            int resultSet = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Article findById(int id) {
+        Article article = new Article();
+        Connection conn = SingletonConnection.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from article where article_id LIKE ?");
+            ps.setInt(1, id );
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                article.setId(rs.getInt("article_id"));
+                article.setCode(rs.getString("article_code"));
+                article.setName(rs.getString("article_name"));
+                article.setPrice(rs.getDouble("article_price"));
+                article.setDescription(rs.getString("article_description"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return article;
     }
 }
