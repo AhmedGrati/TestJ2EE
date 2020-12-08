@@ -18,6 +18,34 @@
 <body>
 
     <div class="container">
+        <!-- Search form -->
+        <form action="allArticle" method="get">
+            <div class="row">
+                <div class="col-9 active-purple-4 mb-4">
+                    <input class="form-control" type="text" name="code" placeholder="Search" aria-label="Search">
+                </div>
+                <div class="col-3 row">
+                    <a href="allArticle?code=">
+                        <button type="submit" class="btn btn-primary">Search By Code </button>
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+        <form action="allArticle" method="get">
+            <div class="row">
+                <div class="col-9 active-purple-4 mb-4">
+                    <input class="form-control" type="text" name="name" placeholder="Search" aria-label="Search">
+                </div>
+                <div class="col-3 row">
+                    <a>
+                        <button type="submit" class="btn btn-primary">Search By Name </button>
+                    </a>
+                </div>
+            </div>
+
+        </form>
         <div>
             <table class="table table-striped">
                 <thead>
@@ -50,9 +78,12 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="row">
             <a href="addArticle?id=${article.id}">
                 <button class="btn btn-primary">Add Article <i class="fa fa-plus"></i></button>
+            </a>
+            <a href="allArticle?tri=true">
+                <button class="btn btn-primary ml-1">Sort Articles</button>
             </a>
         </div>
     </div>

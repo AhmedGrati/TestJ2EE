@@ -13,7 +13,7 @@ import java.util.Optional;
 public class ArticleService implements ArticleDAO {
     @Override
     public List<Article> findAll() {
-        List<Article> prods = new ArrayList<Article>();
+        List<Article> articleList = new ArrayList<Article>();
         Connection conn = SingletonConnection.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("select * from article");
@@ -25,22 +25,58 @@ public class ArticleService implements ArticleDAO {
                 p.setPrice(rs.getDouble("ARTICLE_PRICE"));
                 p.setName(rs.getString("ARTICLE_NAME"));
                 p.setDescription(rs.getString("ARTICLE_DESCRIPTION"));
-                prods.add(p);
+                articleList.add(p);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return prods;
+        return articleList;
     }
 
     @Override
-    public Optional<Article> findByCode(String code) {
-        return Optional.empty();
+    public List<Article> findByCode(String code) {
+        List<Article> articleList = new ArrayList<Article>();
+        Connection conn = SingletonConnection.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from article WHERE article_code LIKE ?");
+            ps.setString(1,code);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Article p = new Article();
+                p.setId(rs.getInt("ARTICLE_ID"));
+                p.setCode(rs.getString("ARTICLE_CODE"));
+                p.setPrice(rs.getDouble("ARTICLE_PRICE"));
+                p.setName(rs.getString("ARTICLE_NAME"));
+                p.setDescription(rs.getString("ARTICLE_DESCRIPTION"));
+                articleList.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return articleList;
     }
 
     @Override
-    public Optional<Article> findByName(String name) {
-        return Optional.empty();
+    public List<Article> findByName(String name) {
+        List<Article> articleList = new ArrayList<Article>();
+        Connection conn = SingletonConnection.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from article WHERE article_name LIKE ?");
+            ps.setString(1,name);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Article p = new Article();
+                p.setId(rs.getInt("ARTICLE_ID"));
+                p.setCode(rs.getString("ARTICLE_CODE"));
+                p.setPrice(rs.getDouble("ARTICLE_PRICE"));
+                p.setName(rs.getString("ARTICLE_NAME"));
+                p.setDescription(rs.getString("ARTICLE_DESCRIPTION"));
+                articleList.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return articleList;
     }
 
     @Override
