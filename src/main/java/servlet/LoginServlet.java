@@ -20,22 +20,22 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         HttpSession httpSession = req.getSession(true);
+        User user = null;
         if(email != null && password != null) {
-            User user = userService.login(email,password);
+            user = userService.login(email,password);
             System.out.println(user);
             if(user != null) {
                 System.out.println(user.getRole());
                 if(user.getRole().equals("admin")) {
-                    req.getRequestDispatcher("AllUsers.jsp").forward(req,resp);
+                    resp.sendRedirect("allUsers");
                 } else {
-                    req.getRequestDispatcher("AllArticles.jsp").forward(req,resp);
+                    resp.sendRedirect("allArticle");
                 }
             } else {
                 req.setAttribute("error","Email Or Password Are Invalid!");
                 req.getRequestDispatcher("index.jsp").forward(req,resp);
             }
-            httpSession.setAttribute("user",user);
         }
-        httpSession.setAttribute("user",null);
+        httpSession.setAttribute("user",user);
     }
 }

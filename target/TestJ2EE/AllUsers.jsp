@@ -2,18 +2,64 @@
   Created by IntelliJ IDEA.
   User: Ahmed
   Date: 12/8/2020
-  Time: 10:05 PM
+  Time: 1:37 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"
+          prefix="c" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>All Users Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1>All Users Page</h1>
+
+<div class="container">
+
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <c:forEach items="${allUsers}" var="user">
+                <tr>
+                    <td>${user.firstName}</td>
+                    <td>${user.lastName}</td>
+                    <td>${user.email}</td>
+                    <td>${user.age}</td>
+                    <td>${user.role}</td>
+                    <td>
+                        <a href="deleteArticle?id=${user.id}">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        </a>
+                        <a href="updateArticle?id=${user.id}">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <a href="addArticle?id=${user.id}">
+            <button class="btn btn-primary">Add User <i class="fa fa-plus"></i></button>
+        </a>
+    </div>
+</div>
 
 </body>
 </html>

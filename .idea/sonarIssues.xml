@@ -68,6 +68,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/servlet/AllUsersServlet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/servlet/DeleteArticleServlet.java">
           <value>
             <set />

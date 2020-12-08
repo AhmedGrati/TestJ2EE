@@ -39,7 +39,27 @@ public class UserService implements UserDAO{
 
     @Override
     public List<User> findAll() {
-        return null;
+        List<User> userList = new ArrayList<User>();
+        Connection conn = SingletonConnection.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from users");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setAge(rs.getInt("age"));
+                user.setEmail(rs.getString("email"));
+                user.setFirstName(rs.getString("first_name"));
+                user.setLastName(rs.getString("last_name"));
+                user.setPassword(rs.getString("user_password"));
+                user.setRole(rs.getString("user_role"));
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userList;
     }
 
     @Override
