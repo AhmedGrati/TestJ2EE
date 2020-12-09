@@ -20,7 +20,7 @@ public class AddUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession(false);
         User user = (User) httpSession.getAttribute("user");
-        if(user != null) {
+        if(user != null && user.getRole().equals("admin")) {
             req.getRequestDispatcher("AddUser.jsp").forward(req,resp);
         }else{
             req.getRequestDispatcher("index.jsp").forward(req,resp);

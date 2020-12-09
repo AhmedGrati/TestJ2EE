@@ -18,7 +18,7 @@ public class DeleteUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession(false);
         User user = (User) httpSession.getAttribute("user");
-        if(user != null) {
+        if(user != null && user.getRole().equals("admin")) {
             int id = Integer.parseInt(req.getParameter("id"));
             UserService userService = new UserService();
 

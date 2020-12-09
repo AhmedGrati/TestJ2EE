@@ -86,6 +86,11 @@
                 <button class="btn btn-primary ml-1">Sort Articles</button>
             </a>
         </div>
+        <div class="row">
+            <a href="disconnect">
+                <button class="btn btn-danger mt-2">Disconnect <i class="fa fa-sign-out"></i></button>
+            </a>
+        </div>
     </div>
 
 </body>

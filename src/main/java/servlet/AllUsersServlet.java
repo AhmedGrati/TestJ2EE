@@ -25,8 +25,8 @@ public class AllUsersServlet extends HttpServlet {
 
         HttpSession httpSession = req.getSession(false);
         User user = (User) httpSession.getAttribute("user");
-        System.out.println(user);
-        if(user != null) {
+
+        if(user != null && user.getRole().equals("admin")) {
             UserService userService = new UserService();
             List<User> userList = new ArrayList<>();
             userList = userService.findAll();
