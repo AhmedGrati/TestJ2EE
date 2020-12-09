@@ -42,10 +42,10 @@
                     <td>${user.age}</td>
                     <td>${user.role}</td>
                     <td>
-                        <a href="deleteArticle?id=${user.id}">
+                        <a href="deleteUser?id=${user.id}">
                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
-                        <a href="updateArticle?id=${user.id}">
+                        <a href="updateUser?id=${user.id}">
                             <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
                         </a>
                     </td>
@@ -55,7 +55,7 @@
         </table>
     </div>
     <div class="row">
-        <a href="addArticle?id=${user.id}">
+        <a href="addUser">
             <button class="btn btn-primary">Add User <i class="fa fa-plus"></i></button>
         </a>
     </div>
