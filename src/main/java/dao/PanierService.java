@@ -60,6 +60,21 @@ public class PanierService implements PanierDAO {
     }
 
     @Override
+    public void deleteArticleFromPanier(int userId, int articleId) {
+        Connection connection = SingletonConnection.getConnection();
+        try {
+
+            String query = "DELETE FROM panier WHERE user_id = ? and article_id = ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, userId);
+            ps.setInt(2, articleId);
+            int resultSet = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public boolean getPanierByUserId(int userId) {
         Connection conn = SingletonConnection.getConnection();
         try {

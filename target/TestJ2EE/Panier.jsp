@@ -84,7 +84,7 @@
                     <td>${article.price}</td>
                     <td>${article.description}</td>
                     <td>
-                        <a href="deleteArticle?id=${article.id}">
+                        <a href="deleteFromPanier?articleId=${article.id}">
                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
                     </td>
