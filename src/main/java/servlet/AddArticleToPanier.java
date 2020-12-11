@@ -1,7 +1,6 @@
 package servlet;
 
 import dao.PanierService;
-import metier.Panier;
 import metier.User;
 
 import javax.servlet.ServletException;

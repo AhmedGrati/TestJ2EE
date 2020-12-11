@@ -1,8 +1,6 @@
 package dao;
 
 import metier.Article;
-import metier.Panier;
-import metier.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

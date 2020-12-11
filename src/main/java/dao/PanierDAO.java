@@ -1,7 +1,6 @@
 package dao;
 
 import metier.Article;
-import metier.Panier;
 
 import java.util.List;
 
