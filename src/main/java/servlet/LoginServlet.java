@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
                 if(user.getRole().equals("admin")) {
                     resp.sendRedirect("allUsers");
                 } else {
-                    resp.sendRedirect("allArticle");
+                    resp.sendRedirect("fetchPanier");
                 }
             } else {
                 req.setAttribute("error","Email Or Password Are Invalid!");

@@ -33,6 +33,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/dao/PanierDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/dao/PanierService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/dao/SingletonConnection.java">
           <value>
             <set />
@@ -53,12 +63,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/metier/Panier.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/metier/User.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/servlet/AddArticleServlet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/servlet/AddArticleToPanier.java">
           <value>
             <set />
           </value>
@@ -89,6 +109,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/servlet/DisconnectServlet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/servlet/FetchPanierServlet.java">
           <value>
             <set />
           </value>
@@ -134,6 +159,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/DeleteUser.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/Panier.jsp">
           <value>
             <set />
           </value>

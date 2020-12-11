@@ -1,3 +1,4 @@
+<%@ page import="metier.User" %>
 <html>
 <head>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -12,6 +13,14 @@
         <%
             if(request.getAttribute("error") != null) {
                 out.print(request.getAttribute("error"));
+            }
+            User user = (User) session.getAttribute("user");
+            if(user != null) {
+                if(user.getRole().equals("admin")) {
+                    response.sendRedirect("allUsers");
+                }else{
+                    response.sendRedirect("allArticle");
+                }
             }
         %>
     </h4>

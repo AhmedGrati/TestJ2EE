@@ -23,7 +23,7 @@ public class AllArticlesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession(false);
         User user = (User) httpSession.getAttribute("user");
-        if(user != null) {
+        if(user != null && user.getRole().equals("admin")) {
             ArticleService articleService = new ArticleService();
             String code = req.getParameter("code");
             String name = req.getParameter("name");
