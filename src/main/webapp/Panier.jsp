@@ -33,6 +33,33 @@
     </div>
 </nav>
 <div class="container mt-2">
+    <form action="fetchPanier" method="get">
+        <div class="row">
+            <div class="col-9 active-purple-4 mb-4">
+                <input class="form-control" type="text" name="code" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-3 row">
+                <a href="allArticle?code=">
+                    <button type="submit" class="btn btn-primary">Search By Code </button>
+                </a>
+            </div>
+        </div>
+
+    </form>
+
+    <form action="fetchPanier" method="get">
+        <div class="row">
+            <div class="col-9 active-purple-4 mb-4">
+                <input class="form-control" type="text" name="name" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-3 row">
+                <a>
+                    <button type="submit" class="btn btn-primary">Search By Name </button>
+                </a>
+            </div>
+        </div>
+
+    </form>
 
     <div>
         <table class="table table-striped">
@@ -77,7 +104,7 @@
             </thead>
             <tbody>
 
-            <c:forEach items="${panier}" var="article">
+            <c:forEach items="${panierArticles}" var="article">
                 <tr>
                     <td>${article.code}</td>
                     <td>${article.name}</td>
