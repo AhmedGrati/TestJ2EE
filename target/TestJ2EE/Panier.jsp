@@ -115,7 +115,7 @@
             </thead>
             <tbody>
 
-            <c:forEach items="${panierArticles}" var="article">
+            <c:forEach items="${panier}" var="article">
                 <tr>
                     <td>${article.code}</td>
                     <td>${article.name}</td>

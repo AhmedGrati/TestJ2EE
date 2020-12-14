@@ -33,7 +33,7 @@ public class PanierService implements PanierDAO {
                 p.setDescription(rs.getString("ARTICLE_DESCRIPTION"));
                 articleList.add(p);
             }
-
+            System.out.println(articleList);
         } catch (SQLException e) {
             e.printStackTrace();
         }
