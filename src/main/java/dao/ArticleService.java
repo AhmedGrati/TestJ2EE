@@ -38,7 +38,7 @@ public class ArticleService implements ArticleDAO {
         List<Article> articleList = new ArrayList<Article>();
         Connection conn = SingletonConnection.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from article WHERE article_code LIKE ?");
+            PreparedStatement ps = conn.prepareStatement("select * from article WHERE UPPER(article_code) LIKE UPPER(?)");
             ps.setString(1,code);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -61,7 +61,7 @@ public class ArticleService implements ArticleDAO {
         List<Article> articleList = new ArrayList<Article>();
         Connection conn = SingletonConnection.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from article WHERE article_name LIKE ?");
+            PreparedStatement ps = conn.prepareStatement("select * from article WHERE UPPER(article_name) LIKE UPPER(?)");
             ps.setString(1,name);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
